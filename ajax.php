@@ -223,7 +223,7 @@ Articles
     <p>
                 <h5 id="color"><a href="show.php?id=<?= $post['article_id'] ?>"><?= $post['article_title']?></a></h5>
                 <small id="small">
-                <?php date_default_timezone_set("America/North_Dakota/Center"); ?>
+                
                 <?php $date = date_create($post['article_date']) ?>
                 <?= date_format($date, "F d, Y, h:m a") ?>
                 </small>
