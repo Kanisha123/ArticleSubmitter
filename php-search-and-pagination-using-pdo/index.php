@@ -66,7 +66,7 @@ body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}
 	<tr>
 	  <th class='table-header' width='20%'>Title</th>
 	  <th class='table-header' width='40%'>Description</th>
-	  <!-- <th class='table-header' width='20%'>Date</th> -->
+	  <th class='table-header' width='20%'>Date</th>
 	</tr>
   </thead>
   <tbody id='table-body'>
