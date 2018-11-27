@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `posts` (
+CREATE TABLE IF NOT EXISTS `article` (
 `id` int(8) NOT NULL,
   `post_title` varchar(255) NOT NULL,
   `description` text NOT NULL,
