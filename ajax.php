@@ -205,7 +205,7 @@ Articles
 <?php
         require('connect.php'); 
 
-        $select = "SELECT * FROM article_details ORDER BY article_date DESC ";
+        $select = "SELECT * FROM article_details ORDER BY article_id DESC ";
 
         $statement = $db->prepare($select);
         $statement->execute(); 
