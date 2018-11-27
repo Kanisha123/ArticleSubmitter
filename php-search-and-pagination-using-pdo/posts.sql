@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS `article` (
   `post_at` date DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
-ALTER TABLE `article`
+ALTER TABLE `posts`
  ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `posts`
