@@ -160,9 +160,9 @@
         <li class="dropdown"><a href="register.php">Create New Account</a>
         </li>
        
-        <!-- <li class="dropdown"><a href="logg.html">Log In</a>
+        <li class="dropdown"><a href="logg.html">Log In</a>
             
-        </li> -->
+        </li>
           <li class="dropdown"><a href="about-us.html">About us</a>
             
         </li>
