@@ -15,23 +15,6 @@ include("connect.php");
     		$insert_id = $db->lastInsertId();
     		header("Location: index.php");
 
-if($_GET['command'] === "query")
- {
-    require('connect.php'); 
 
-        $title = filter_input(INPUT_GET, 'typeahead', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
-        if($title==="" || empty($title))
-        {
-            header("Location: index.php");
-        }
-        $select = "SELECT * FROM article_details WHERE article_title = :title";
-        $statement = $db->prepare($select);
-        $statement->bindValue(':title', $title);
-        $statement->execute(); 
-        $posts = $statement->fetch();
-        // $atitle = $posts['article_title'];
-        // $abody = $posts['article_body'];
-        if(empty($posts))
 
   ?>
