@@ -1,0 +1,156 @@
+@charset "utf-8";
+/* CSS Document */
+#content1{
+width:600px;
+margin:0 auto;
+}
+
+#mainDiv mainTbl{
+	BORDER-RIGHT: #ddd 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #ddd 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: #ddd 1px solid; WIDTH: 100%; PADDING-TOP: 0px; BORDER-BOTTOM: #ddd 1px solid; BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: #ffffff; border-spacing: 0px
+	}
+	
+.GridDiv
+{
+	width:100%;
+		
+}
+
+.GridView
+{
+
+	BORDER-RIGHT: #cccccc 1px solid;
+	PADDING-RIGHT: 5px;
+	BORDER-TOP: #cccccc 1px solid;
+	PADDING-LEFT: 5px;
+	/*BACKGROUND: #e9ecef;*/
+	PADDING-BOTTOM: 5px;
+	BORDER-LEFT: #cccccc 1px solid;
+	PADDING-TOP: 5px;
+	BORDER-BOTTOM: #cccccc 1px solid;
+	font-size: 12px;
+	background-color:#CBCBCB;
+}
+.GridView tr.Row0 {
+	/*#DBDBDB*/
+	background-color:#CBCBCB;
+	
+}
+
+.GridView tr.Row1 {
+
+	background-color:#C1C2C2;
+	
+}
+
+.GridView tr:hover {
+	/*#DBDBDB*/
+	background-color:#D5D5D5;
+
+	
+}
+
+.GridView td {
+
+	padding: 5px;
+	color:#000;
+	/*border: 1px solid #cccccc;*/
+	text-align:left;
+	
+}
+
+
+
+.GridView th {
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #666666;
+	color: #FFFFFF;
+	padding: 5px;
+	text-align: center;
+	vertical-align: middle;
+	border: 1px solid #999999;
+}
+
+.GridView td a{
+	font-weight:bold;
+	cursor: pointer;
+	text-decoration: none;
+	color: #993300;
+	
+}
+.GridView td .short
+{
+	font-weight:normal;
+	
+}
+
+/*Expand*/
+
+.fleft {float:left;}
+.spacer15 {clear:both; height:15px; width:100%;}
+.promo_right .row .c2{width:195px; #width:165px; margin:0px; padding:0px;}
+.c2 {width:593px; margin:0px 20px 0px 5px;}
+.c2 h1{font-size:20px; color:#363636; padding-bottom:15px}
+.c2 h2{font-size:14px; color:#515151; font-weight:normal}
+.c2 .con p{padding:10px 0px;}
+.c4 .cc2 {width:80px; margin:0px;}
+.c4 h3 {font-size:16px; color:#6c6c6c; line-height:20px; margin-bottom:10px;}
+.c7 h3 {font-size:15px; color:#6c6c6c; line-height:20px; margin-bottom:10px;}
+.FAQr {margin-bottom:0px;}
+ul.faqs {list-style:none; padding:0px; margin:0px;}
+ul.faqs li {list-style:none; padding: 4px 0px; margin:0px;}
+ul.faqs li a {color:#0072bc; font-size:12px; text-decoration:none;}
+.rc2 {width:168px; margin-right:4px;}
+.demo{clear:both; position:relative; margin:2em 0 1.5em; padding:1.5em 1.5em .75em; overflow:hidden}
+ 
+.js .demo{visibility:hidden}
+ 
+.expand{clear:both; margin:0; border-bottom:1px solid #fff;}
+.faq{width:600px; margin:0 0 0 0; padding:0 0 0 0; float:left;}
+.bullet{
+list-style-image:url(../images/bullet-grey-small.gif);color:#515151;margin-left:30px;}
+h4..expand {font-weight:normal;}
+.collapse {
+  margin-bottom:0em;
+  overflow:hidden;
+  border-left:1px solid #EAF0F6;
+  border-right:1px solid #EAF0F6;
+  width:99.7%;
+}
+.collapse p {
+  margin:4px 8px;
+  
+}
+.switch {position:absolute; top:-1px; right: 1.5em; padding:3px;}
+.switch a:link.close {background:url(plus.gif) no-repeat 0px 1px;}
+.switch a:link.open {background:url(minus.gif) no-repeat 0px 1px;}
+.post .switch {position:static; text-align:right}
+ 
+.post .main{margin-bottom:1em; padding-bottom:0}
+ 
+.switch a:link, .switch a:visited {padding:0px 0px 0px 20px; background-image:none}
+ 
+.switch a:hover, .switch a:focus, .switch a:active{}
+ 
+.post .switch a:hover, .post .switch a:focus, .post .switch a:active{background-color:#efefef}
+ 
+#faq .expand a {display:block; padding:3px 10px; text-decoration:none;}
+ 
+#faq .expand a:link, #faq .expand a:visited {
+  display:block;
+  border-width:1px;
+  background:#EAF0F6 url(plus.gif) no-repeat 1% 50%;
+  font:bold 12px Arial;
+  padding:4px 0px 4px 30px;
+}
+#faq .expand a:hover, #faq .expand a:active, #faq .expand a:focus {
+  outline-color:#EAF0F6; 
+}
+#faq .expand a:active{border-bottom:1px solid #EAF0F6;}
+#faq .expand a:link.open, #faq .expand a:visited.open {
+  background:#EAF0F6 url(minus.gif) no-repeat 1% 50%;
+}
+.other ul {padding:1em; border:1px solid #e8e7e8; background:#fff url(../images/exp-bg-body.png) repeat-x scroll 0 -30px; text-align:center}
+ 
+.top{font-size:.9em; text-align:right}
+

@@ -1,0 +1,68 @@
+html{
+	box-sizing: border-box;
+}
+body{
+	margin: 0;
+    display: block;
+}
+
+.color{
+	color: #e54c4c;
+    font-size: 18px;
+    line-height: 15px;
+    text-transform: capitalize;
+    text-align: center;
+
+}
+
+.small{
+	margin-left: 200px;
+	font-size: 8px;
+	/*float: right;*/
+	display: block;
+}
+
+.me{
+	display: block;
+	/*float: right;*/
+	/*width: 500px;*/
+	text-align: center;
+	font-size: 13px;
+    line-height: 16px;
+    color: #111e2e;
+    /*border: 1px solid black;*/
+}
+.part{
+	
+	/*border: 1px solid black;*/
+}
+
+.kanisha{
+	margin-bottom:15px;
+	height: 117px;
+	overflow:hidden;
+	border-bottom: 3px solid #e44d4c;
+
+
+}
+.image{
+	width:192px;
+	height: 117px;
+	/*border: 1px solid black;*/
+	float: left;
+}
+
+img{
+	width:192px;
+	height: 117px;
+}
+
+#hello{
+	display:block;
+	width:656;
+	/*border: 1px solid black;*/
+	margin:auto;
+}
+
+img,h5{
+	display:block;
