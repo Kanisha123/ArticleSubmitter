@@ -174,7 +174,7 @@
 
         <!-- <div class="search-container"> -->
         <!-- <form action="#" class="search-container"> -->
-      <!-- <input type="text" name="typeahead" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Type your Query"> -->
+      <input type="text" name="typeahead" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Type your Query">
       <!-- <button type="submit"></button> -->
     <!-- </form> -->
         <!-- </div> -->
