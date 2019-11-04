@@ -44,7 +44,7 @@ $var=$_SESSION['success'];
 	<![endif]-->
     
     <!-- ######### CSS STYLES ######### -->
-	
+
     <link rel="stylesheet" href="css/reset.css" type="text/css" />
 	<link rel="stylesheet" href="css/style.css" type="text/css" />
     
@@ -80,6 +80,7 @@ $var=$_SESSION['success'];
     
 	<script type="text/javascript" src="js/validation.js" > 
 	</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -197,6 +198,7 @@ $var=$_SESSION['success'];
 	</div>
 
 
+
 <!-- end page title --> 
  <div class="divider_line11">
 <h1>
@@ -207,7 +209,8 @@ My Article
 
 <div class="component">
 
-<?php   
+<?php  
+
     $search_keyword = '';
     if(!empty($_POST['search']['keyword'])) {
         $search_keyword = $_POST['search']['keyword'];
@@ -221,6 +224,8 @@ My Article
         $posts = $statement->fetch();
 
         $aid = $posts['author_id'];
+  
+
     $sql = 'SELECT * FROM article_details WHERE article_title LIKE :keyword AND author_id = :id';
     // $pagination_statement = $db->prepare($sql);
         
@@ -268,8 +273,6 @@ My Article
   <thead>
     <tr>
       <th class='table-header' width='20%'>Title</th>
-      <!-- <th class='table-header' width='40%'>Description</th> -->
-      <!-- <th class='table-header' width='20%'>Date</th> -->
     </tr>
   </thead>
   <tbody id='table-body'>
@@ -288,6 +291,7 @@ My Article
   </tbody>
 </table>
 <?php echo $per_page_html; ?>
+
 </form>
 </div>
 

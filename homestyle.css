@@ -6,7 +6,7 @@ body{
     display: block;
 }
 
-.color{
+#color{
 	color: #e54c4c;
     font-size: 18px;
     line-height: 15px;
@@ -15,14 +15,14 @@ body{
 
 }
 
-.small{
+#small{
 	margin-left: 200px;
 	font-size: 8px;
 	/*float: right;*/
 	display: block;
 }
 
-.me{
+#me{
 	display: block;
 	/*float: right;*/
 	/*width: 500px;*/
@@ -32,7 +32,7 @@ body{
     color: #111e2e;
     /*border: 1px solid black;*/
 }
-.part{
+#part{
 	
 	/*border: 1px solid black;*/
 }

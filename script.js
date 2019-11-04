@@ -22,7 +22,7 @@ else
 var dataString = 'captcha=' + captcha;
 $.ajax({
 type: "POST",
-url: "correct.php",
+url: "reg.php",
 data: dataString,
 success: function(html) {
 alert(html);

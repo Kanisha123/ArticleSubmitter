@@ -22,6 +22,7 @@
    
     
     <!-- ######### CSS STYLES ######### -->
+        <link rel="stylesheet" type="text/css" href="sort.css">
     <link rel="stylesheet" type="text/css" href="search.css">
     <link rel="stylesheet" href="homestyle.css" type="text/css">
     
@@ -149,7 +150,24 @@
     
     </div>
 
-
+<div class="right">
+   <form action="#" method="post" id="jsform">
+       <select name="sortBy" class="sort">
+          <option value="date" id="date" selected="selected">Date</option> 
+          <option value="title" id="title">Title</option>
+       </select>
+       <!-- <input type="submit" name="submit" value="Get Selected Values" /> -->
+   </form> 
+   <script type="text/javascript">
+    
+    $('.sort').change(function() {var value = $(this).val();
+     
+     $('.sort option[value=title]').attr('selected','selected');
+     document.getElementById('jsform').submit();
+  });
+ 
+</script>
+</div>
 <!-- end page title --> 
  <div class="divider_line11">
 <h1>
@@ -166,7 +184,17 @@ Articles
 <?php
         require('connect.php'); 
 
+    if ($_POST["sortBy"]==="date") {
         $select = "SELECT * FROM article_details ORDER BY article_date DESC ";
+      }
+      elseif ($_POST["sortBy"]==="title") {
+        $select = "SELECT * FROM article_details ORDER BY article_title ASC ";
+      }
+      else{
+        $select = "SELECT * FROM article_details ORDER BY article_date DESC ";
+      }
+
+            // $select = "SELECT * FROM article_details ORDER BY article_date DESC ";
 
         $statement = $db->prepare($select);
         $statement->execute(); 

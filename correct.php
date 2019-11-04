@@ -1,64 +1,34 @@
-<?php
-// $atitle = "";
-// $abody = "";
-
- if($_GET['command'] === "query")
- {
-    require('connect.php'); 
-
-        $title = filter_input(INPUT_GET, 'typeahead', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
-        if($title==="" || empty($title))
-        {
-            header("Location: index.php");
-        }
-        $select = "SELECT * FROM article_details WHERE article_title = :title";
-        $statement = $db->prepare($select);
-        $statement->bindValue(':title', $title);
-        $statement->execute(); 
-        $posts = $statement->fetch();
-        // $atitle = $posts['article_title'];
-        // $abody = $posts['article_body'];
-        if(empty($posts))
-        {
-
- 
-?>
-<script>
-alert("No Result Found");
-window.location.href="index.php";
-</script>
 
 <?php
-}
-}
-else
-{
-        require('connect.php'); 
 
-        $id = filter_input(INPUT_GET,'id', FILTER_SANITIZE_NUMBER_INT);
-        $select = "SELECT * FROM article_details WHERE article_id = :id";
-        $statement = $db->prepare($select);
-        $statement->bindValue(':id', $id, PDO::PARAM_INT);
-        $statement->execute(); 
-        $posts = $statement->fetch();
-        // $atitle = $posts['article_title'];
-        // $abody = $posts['article_body'];
-    }
+include("connect.php");
+include("isLogin.php");
+define("ROW_PER_PAGE",2);
+$var=$_SESSION['success'];
+
 ?>
+
 <!doctype html>
 
 <head>
-    <title>Login Page</title>
+    <style>
+/*body{width:615px;font-family:arial;letter-spacing:1px;line-height:20px;}*/
+/*.tbl-qa{width: 100%;font-size:0.9em;background-color: #f5f5f5;}*/
+/*.tbl-qa th.table-header {padding: 5px;text-align: left;padding:10px;}*/
+/*.tbl-qa .table-row td {padding:10px;background-color: #FDFDFD;vertical-align:top;}*/
+.button_link {color:#FFF;text-decoration:none; background-color:#428a8e;padding:10px;}
+#keyword{border: #CCC 1px solid; border-radius: 4px; padding: 7px;background:url("demo-search-icon.png") no-repeat center right 7px; background-color: white;}
+.btn-page{margin-right:10px;padding:5px 10px; border: #CCC 1px solid; background:#FFF; border-radius:4px;cursor:pointer;}
+.btn-page:hover{background:#F0F0F0;}
+.btn-page.current{background:#F0F0F0;}
+</style>
+    <title>My Article</title>
     
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
-   <link rel="shortcut icon" type="image/png" href="images/krdx.png"/>
-    
-    <!-- Favicon --> 
-
+    <link rel="shortcut icon" type="image/png" href="images/krdx.png"/>
     
     <!-- this styles only adds some repairs on idevices  -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,11 +38,12 @@ else
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Dancing+Script:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:400,100,100italic,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
-   
+    
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
     
     <!-- ######### CSS STYLES ######### -->
-    <link rel="stylesheet" type="text/css" href="form.css">
-    <link rel="stylesheet" href="homestyle.css" type="text/css">
     
     <link rel="stylesheet" href="css/reset.css" type="text/css" />
     <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -102,9 +73,12 @@ else
     <!-- forms -->
     <link rel="stylesheet" href="js/form/sky-forms2.css" type="text/css" media="all">
     
+    <link rel="stylesheet" type="text/css" href="css/component.css">
+    <link rel="stylesheet" type="text/css" href="css/demo.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    
+    
     <script type="text/javascript" src="js/validation.js" > 
-    </script>
-    <script type="text/javascript" src="auto.js" > 
     </script>
 </head>
 
@@ -118,7 +92,38 @@ else
 <div class="container">
     
     <h1>Auto Article Submitter</h1>
-    <div class="pagenation">&nbsp; <a href="index.php">Home</a> <i>/</i> <a href="register.php">Create New Account</a> <i>/</i> <a href="logg.html">Login</a> </div>
+  <div class="pagenation">&nbsp; Welcome :
+    
+    <?php
+    
+    require('connect.php');
+    require('isLogin.php');
+    
+    $var=$_SESSION['success'];
+    // $username = $_POST['Email'];
+ //  $password = $_POST['Password'];
+    
+    $select = "SELECT author_firstName,author_lastName FROM author_details WHERE author_email = :email";
+        $statement = $db->prepare($select);
+        $statement->bindValue(':email', $var);
+        $statement->execute(); 
+        $posts = $statement->fetch();
+    // $qry="select Firstname,Lastname from author_mstr where Email='$var'";
+    // $result=mysqli_query($con,$qry);
+    
+// while($row=mysqli_fetch_array($result))
+//  {
+//  echo $row['Firstname'];
+//  echo "&nbsp";
+//  echo $row['Lastname'];
+//  }
+
+            echo $posts['author_firstName'];
+            echo "&nbsp";
+            echo $posts['author_lastName'];
+
+    ?>
+     </div>
      
 </div>
 </div>
@@ -147,23 +152,35 @@ else
       
       <div id="navbar-collapse-1" class="navbar-collapse collapse">
       
+        
         <ul class="nav navbar-nav three">
        
-        <li class="dropdown yamm-fw"><a href="index.php"  class="dropdown-toggle active"><i class="fa fa-home">  </i> Home </a></li>
-        
-        <li class="dropdown"><a href="register.php">Create New Account</a>
-        </li>
-       
-        
-       
-          <li class="dropdown"><a href="about-us.html">About us</a>
+        <li class="dropdown"><a href="home.php"><i class="fa fa-home ">  </i> Home </a></li>
+        <li class="dropdown"><a href="submit.php">Submit Your Article</a>
             
         </li>
         
+        <li class="dropdown"><a href="#" >My Article</a>
+            
+        </li>
+
+        <li class="dropdown"><a href="editprofile.php" >Manage Your Profile</a>
+            
+        </li>
+        
+        
+       
+            
+        </li>
+        <li class="dropdown"> <a href="feedback.php">Feedback</a></li>
+       <li class="dropdown"> <a href="logout.php">Logout</a></li>
        
        
                 
         </ul>
+       
+<form name='frmSearch' action='' method='post'>
+<div style='text-align:right;margin:-45px;float: right;'><input type='text' name='search[keyword]' value="<?php echo $search_keyword; ?>" id='keyword' maxlength='25'></div>
         
       </div>
       
@@ -183,61 +200,94 @@ else
 <!-- end page title --> 
  <div class="divider_line11">
 <h1>
-<?= $posts['article_title'] ?>
+My Article
 </h1>
 
 </div>
 
+<div class="component">
 
+<?php   
+    $search_keyword = '';
+    if(!empty($_POST['search']['keyword'])) {
+        $search_keyword = $_POST['search']['keyword'];
+    }
+    require('connect.php');
+        // $id = filter_input(INPUT_GET,'id', FILTER_SANITIZE_NUMBER_INT);
+        $select = "SELECT author_id FROM author_details WHERE author_email = :email";
+        $statement = $db->prepare($select);
+        $statement->bindValue(':email', $var);
+        $statement->execute(); 
+        $posts = $statement->fetch();
 
-<div class="content_fullwidth less2">
-<div class="container">
-
-<div id="show">
-    <p>
-        <?= $posts['article_body'] ?>
-    </p>
-</div>
+        $aid = $posts['author_id'];
+    $sql = 'SELECT * FROM article_details WHERE article_title LIKE :keyword AND author_id = :id';
+    // $pagination_statement = $db->prepare($sql);
+        
     
+    /* Pagination Code starts */
+    $per_page_html = '';
+    $page = 1;
+    $start=0;
+    if(!empty($_POST["page"])) {
+        $page = $_POST["page"];
+        $start=($page-1) * ROW_PER_PAGE;
+    }
+    $limit=" limit " . $start . "," . ROW_PER_PAGE;
+    $pagination_statement = $db->prepare($sql);
+    $pagination_statement->bindValue(':id', $aid);
+    $pagination_statement->bindValue(':keyword', '%' . $search_keyword . '%', PDO::PARAM_STR);
+    $pagination_statement->execute();
+
+    $row_count = $pagination_statement->rowCount();
+    if(!empty($row_count)){
+        $per_page_html .= "<div style='text-align:center;margin:20px 0px;'>";
+        $page_count=ceil($row_count/ROW_PER_PAGE);
+        if($page_count>1) {
+            for($i=1;$i<=$page_count;$i++){
+                if($i==$page){
+                    $per_page_html .= '<input type="submit" name="page" value="' . $i . '" class="btn-page current" />';
+                } else {
+                    $per_page_html .= '<input type="submit" name="page" value="' . $i . '" class="btn-page" />';
+                }
+            }
+        }
+        $per_page_html .= "</div>";
+    }
+    
+    $query = $sql.$limit;
+    $pdo_statement = $db->prepare($query);
+    $pdo_statement->bindValue(':keyword', '%' . $search_keyword . '%', PDO::PARAM_STR);
+    $pdo_statement->bindValue(':id', $aid);
+    $pdo_statement->execute();
+    $result = $pdo_statement->fetchAll();
+?>
+
+
+<table class='tbl-qa'>
+  <thead>
+    <tr>
+      <th class='table-header' width='20%'>Title</th>
+    </tr>
+  </thead>
+  <tbody id='table-body'>
+    <?php
+    if(!empty($result)) { 
+        foreach($result as $row) {
+    ?>
+      <tr class='table-row'>
+        <td><a href="edit.php?id=<?= $row['article_id'] ?>"><?php echo $row['article_title']; ?></a></td>
+        
+      </tr>
+    <?php
+        }
+    }
+    ?>
+  </tbody>
+</table>
+<?php echo $per_page_html; ?>
+</form>
 </div>
- <div class="divider_line11">
-<h1>
-Comment
-</h1>
-
-
-</div>
-<div class="container">
-    <div class="form-style-8">
-
-  <form method="post" action="insert.php"> 
-    <input type="text" name="name" placeholder="Full Name" />
-    <textarea placeholder="Message" onkeyup="adjust_textarea(this)" name="comment"></textarea>
-    <input type="hidden" name="id" value="<?= $posts['article_id'] ?>" />
-    <input type="submit" value="Send Message" />
-  </form>
-  <?php
-  require('connect.php'); 
-
-        $id = filter_input(INPUT_GET,'id', FILTER_SANITIZE_NUMBER_INT);
-        $select = "SELECT * FROM article_comment WHERE article_id = :id AND hide = 'N' ORDER BY comment_id DESC";
-        $statement1 = $db->prepare($select);
-        $statement1->bindValue(':id', $id, PDO::PARAM_INT);
-        $statement1->execute(); 
-        $posts1 = $statement1->fetchAll();
-  ?>
-  <hr style="border-bottom: 1px solid grey;" />
-  <table>
-    <?php foreach($posts1 as $post): ?>
-      <tr><td style="font-weight: bold;text-transform: capitalize;"><?= $post['name'] ?><small style="padding-left: 10px;"><a href="editcomment.php?id=<?= $post['comment_id'] ?>">edit</a></small></td></tr>
-      <tr><td style="border-bottom: 2px solid grey;width: 1000px;"><?= $post['comment'] ?></td></tr>
-      <?php endforeach ?>
-  </table>
-
-
-</div>
-</div>
-</div><!-- end content area -->
 
 <div class="clearfix marb12"></div>
 

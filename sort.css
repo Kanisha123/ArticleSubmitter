@@ -1,0 +1,27 @@
+
+.right{
+	float: right;
+	margin-right: 80px;
+	margin-top: 20px;
+	/*margin-bottom: -200px;*/
+
+}
+
+.sort{
+    background-size: 8px;
+    border-color: #ccc;
+    border-radius: 4px;
+    box-shadow: none;
+    cursor: pointer;
+    height: 32px;
+    width: 100px;
+    padding: 4px 24px 4px 8px;
+}
+
+option {
+    font-weight: normal;
+    display: block;
+    white-space: pre;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+}
